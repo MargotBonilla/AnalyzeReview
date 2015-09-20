@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.css') }}" />
+            <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap-theme.css') }}" />
+            {#<link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-bundle/Resources/sass/bootstrap.scss') }}" filter="sass"/>#}
+            <link rel="stylesheet" href="{{ asset('assets/vendor/jquery-ui/themes/smoothness/jquery-ui.css') }}" />
+            <link rel="stylesheet" href="{{ asset('assets/vendor/jqgrid/css/ui.jqgrid.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}" />
+        {% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <header>
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ path('review_list') }}">
+                        $TrivagoCallenge->AnalyzeReview()
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        {% block header_navigation_links %}
+                            <li>
+                                <a href="{{ url('review_list') }}">
+                                    <i class="fa fa-home"></i>
+                                    {#{{ 'menu.homepage'|trans }}#}Review list
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('review_add') }}">
+                                    <i class="fa fa-home"></i>
+                                    {#{{ 'menu.homepage'|trans }}#}Review create
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('criteria_list') }}">
+                                    <i class="fa fa-home"></i>
+                                    {#{{ 'menu.homepage'|trans }}#}Criteria list
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('criteria_form') }}">
+                                    <i class="fa fa-home"></i>
+                                    {#{{ 'menu.homepage'|trans }}#}Criteria create
+                                </a>
+                            </li>
+                        {% endblock %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <body>
+        {% block body %}
+            {% block reviewList %}
+            {% endblock %}
+            {% block reviewForm %}
+            {% endblock %}
+            {% block reviewImport %}
+            {% endblock %}
+            {% block criteriaList %}
+            {% endblock %}
+            {% block criteriaForm %}
+            {% endblock %}
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="{{ asset('assets/vendor/jquery/dist/jquery.js') }}"></script>
+            <script src="{{ asset('assets/vendor/jqgrid/js/jquery.jqGrid.js') }}"></script>
+            {#<script src="{{ asset('assets/vendor/jqgrid/plugins/jquery.searchFilter.js') }}"></script>#}
+            <script src="{{ asset('assets/vendor/jqgrid/js/i18n/grid.locale-en.js') }}"></script>
+            <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+            {% block extra_javascripts %}
+            {% endblock %}
+        {% endblock %}
+
+    </body>
+    <footer class="footer"></footer>
+</html>

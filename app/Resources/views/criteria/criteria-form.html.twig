@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block criteriaForm %}
+    <div class="container">
+
+        <legend>Criteria Create</legend>
+
+        <form name="form" method="post" action="add">
+            <div id="form">
+                <div class="form-group">
+                    <label class="control-label required" for="form_type">Type</label>
+                    <select id="form_type" name="form[type]" required="required" class="form-control">
+                        <option value="" selected="selected">Choose the type</option>
+                        <option value="ALTER_NAME">Alter Name</option>
+                        <option value="POSITIVE">Positive</option>
+                        <option value="NEGATIVE">Negative</option>
+                    </select>
+                </div>
+
+                <div id="topic" class="form-group">
+                    <label class="control-label" for="form_topic">Topic</label>
+                    <input type="text" id="form_topic" name="form[topic]" placeholder="Write the topic" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label required" for="form_name">Name</label>
+                    <input type="text" id="form_name" name="form[name]" required="required" placeholder="Write the name" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" id="form_save" name="form[save]" class="btn btn-success pull-left btn">Create Criteria</button>
+                </div>
+            </div>
+        </form>
+
+        {% if messageError %}
+            <div class="alert alert-danger alert-dismissible below">{{ messageError }}</div>
+        {% endif %}
+    </div>
+{% endblock %}
+ {% block extra_javascripts %}
+     {{ parent() }}
+     <script src="{{ asset('js/criteria-form.js') }}"></script>
+ {% endblock %}

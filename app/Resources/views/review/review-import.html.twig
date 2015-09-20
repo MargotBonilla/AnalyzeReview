@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block reviewImport %}
+    <div class="container">
+
+        <a href="{{ url('review_add') }}" class="btn btn-info pull-right">Create Review</a>
+
+        <legend>Select your csv file to import a review list</legend>
+
+        <form class="form-import" action="" method="post" {{ form_enctype(form) }}>
+            {{ form_widget(form) }}
+
+            <input class="btn btn-success" type="submit" value="Upload file"/>
+        </form>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{
+  "name": "AnalyzeReview",
+  "version": "0.1.0",
+  "description": "Bower file for install js dependences",
+  "main": "bower",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/assets/vendor/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "jquery-ui": "~1.11.4",
+    "bootstrap-bundle": "braincrafted/bootstrap-bundle#~2.1.2",
+    "jqgrid": "~5.0.0"
+  }
+}

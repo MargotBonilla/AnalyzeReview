@@ -1,0 +1,8 @@
+parameters:
+
+services:
+
+  review.service:
+    class:  AppBundle\Service\ReviewService
+    arguments:
+      entityManager: "@doctrine.orm.entity_manager"

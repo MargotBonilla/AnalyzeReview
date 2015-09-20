@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block reviewList %}
+
+    <div class="container">
+        <legend>Review List</legend>
+
+        {% if message %}
+            <div id="message" class="alert alert-success alert-dismissible">{{ message }}</div>
+        {% endif %}
+
+        <div id="message_remove" class="hidden alert alert-success alert-dismissible"></div>
+
+        <div class="table-content">
+            <table id="grid" class="table table-responsive"></table>
+            <div id="toolbar"></div>
+        </div>
+        <div class="options">
+            <a onclick="showMessageWait()" href="{{ url('review_run') }}" class="btn btn-success">Run Analyze</a>
+        </div>
+
+    </div>
+
+    <div id="box-loading" class="hidden">
+        <div class="box"></div>
+        <div id="box-loading" class="box-loading">
+            <div>Analyzing the Review List...</div>
+            <div class="spinner">
+                <div class="cube1"></div>
+                <div class="cube2"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
+ {% block extra_javascripts %}
+     {{ parent() }}
+     <script src="{{ asset('js/review-grid.js') }}"></script>
+ {% endblock %}
